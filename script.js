@@ -1,4 +1,88 @@
-document.querySelector("button").addEventListener("click", searchResult);
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.createElement("div");
+    container.classList.add("container");
+
+    const row1 = document.createElement("div");
+    row1.classList.add("row");
+
+    const col1 = document.createElement("div");
+    col1.classList.add("col-12");
+
+    const headerDiv = document.createElement("div");
+
+    const header = document.createElement("h2");
+    header.textContent = "Trending TV Shows";
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "Pick your Favorite";
+
+    headerDiv.appendChild(header);
+    headerDiv.appendChild(paragraph);
+
+    col1.appendChild(headerDiv);
+    row1.appendChild(col1);
+
+    const row2 = document.createElement("div");
+    row2.classList.add("row");
+
+    const col2 = document.createElement("div");
+    col2.classList.add("col-12");
+
+    const popularPicks = document.createElement("h5");
+    popularPicks.textContent = "Popular Picks: Girls | The Flash | Fall River | Debris | Innocent | Bull | Big Shot | All Rise";
+
+    col2.appendChild(popularPicks);
+    row2.appendChild(col2);
+
+    const row3 = document.createElement("div");
+    row3.classList.add("row");
+
+    const col3 = document.createElement("div");
+    col3.classList.add("col-12", "col-md-8", "offset-md-2");
+
+    const inputGroup = document.createElement("div");
+    inputGroup.classList.add("input-group");
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "search");
+    input.setAttribute("id", "showSearch");
+    input.classList.add("form-control");
+    input.setAttribute("placeholder", "Search for a show");
+
+    const inputGroupAppend = document.createElement("div");
+    inputGroupAppend.classList.add("input-group-append");
+
+    const button = document.createElement("button");
+    button.setAttribute("type", "button");
+    button.classList.add("btn", "btn-primary");
+
+    const icon = document.createElement("i");
+    icon.classList.add("fa", "fa-search");
+    icon.setAttribute("aria-hidden", "true");
+
+    button.appendChild(icon);
+    inputGroupAppend.appendChild(button);
+
+    inputGroup.appendChild(input);
+    inputGroup.appendChild(inputGroupAppend);
+
+    col3.appendChild(inputGroup);
+    row3.appendChild(col3);
+
+    const row4 = document.createElement("div");
+    row4.classList.add("row", "mt-4");
+    row4.setAttribute("id", "cardDetails");
+
+    container.appendChild(row1);
+    container.appendChild(row2);
+    container.appendChild(row3);
+    container.appendChild(row4);
+
+    document.body.appendChild(container);
+
+    button.addEventListener("click", searchResult);
+});
+
 var data = '';
 var response = '';
 
